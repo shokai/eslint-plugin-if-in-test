@@ -2,6 +2,8 @@
 
 find "if" statement in test code. "if" is usually not necessary in test and it is miss spell of "it".
 
+- https://github.com/shokai/eslint-plugin-if-in-test
+
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
