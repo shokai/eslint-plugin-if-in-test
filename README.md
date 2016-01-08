@@ -40,7 +40,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "if-in-test/if": [1, "test"]
+        "if-in-test/if": [1, {"directory": "test"}]
     }
 }
 ```
@@ -49,7 +49,7 @@ Then configure the rules you want to use under the rules section.
 
 * if
   * find `if` statement
-  * `[1, "test"]` - warn `if` statement in `test/` directory.
+  * `[1, {"directory": "test"}]` - warn `if` statement in `test/` directory.
 
 
 
