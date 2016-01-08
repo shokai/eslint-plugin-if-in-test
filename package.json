@@ -13,6 +13,7 @@
     "test": "mocha"
   },
   "dependencies": {
+    "chalk": "*"
   },
   "devDependencies": {
     "eslint": "~1.2.0"
