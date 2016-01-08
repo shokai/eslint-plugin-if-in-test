@@ -4,6 +4,8 @@ find `if` statement in test code. `if` is usually not necessary in test, and it 
 
 - https://github.com/shokai/eslint-plugin-if-in-test
 
+![screen shot](https://gyazo.com/c87aa435b0ed458b24d9eceb51a9995c.png)
+
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
