@@ -1,6 +1,6 @@
 # eslint-plugin-if-in-test
 
-find "if" statement in test code. "if" is usually not necessary in test and it is miss spell of "it".
+find `if` statement in test code. `if` is usually not necessary in test, and it is typo of `it`.
 
 - https://github.com/shokai/eslint-plugin-if-in-test
 
@@ -38,14 +38,16 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "if-in-test/rule-name": 2
+        "if-in-test/if": [1, "test"]
     }
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
+* if
+  * find `if` statement
+  * `[1, "test"]` - warn `if` statement in `test/` directory.
 
 
 
