@@ -9,9 +9,6 @@
   ],
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "main": "lib/index.js",
-  "scripts": {
-    "test": "mocha"
-  },
   "dependencies": {
     "chalk": "*"
   },
@@ -22,9 +19,6 @@
     "node": ">=0.10.0"
   },
   "license": "MIT",
-  "directories": {
-    "test": "tests"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shokai/eslint-plugin-if-in-test.git"
