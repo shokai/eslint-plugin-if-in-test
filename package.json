@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-if-in-test",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "find \"if\" statement in test code. \"if\" is usually not necessary in test, and it is typo of \"it\".",
   "keywords": [
     "eslint",
