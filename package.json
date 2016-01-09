@@ -9,6 +9,9 @@
   ],
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "main": "lib/index.js",
+  "scripts" :{
+    "test": "mocha tests/**/test_*.js"
+  },
   "dependencies": {
     "chalk": "*"
   },
@@ -18,6 +21,9 @@
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "directories": {
+    "test": "tests"
   },
   "license": "MIT",
   "repository": {
