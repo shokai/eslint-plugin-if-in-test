@@ -7,18 +7,24 @@ var ruleTester = new RuleTester();
 ruleTester.run("rule \"if\"", rule, {
   valid: [
     {
-      code: "var foo = 'bar';",
-      options: [{directory: "test"}]
-    },
-    {
       code: "if(true){ }",
       options: [{directory: "test"}],
-      filename: path.resolve("src/foo/bar/baz.js") // out-side of test directory
+      filename: path.resolve("test/foo/bar/baz.js") // inside of test directory
+    },
+    {
+      code: "describe('foo', function(){ it('should ~~', function(){  }); }); // valid mocha test",
+      options: [{directory: "test"}],
+      filename: path.resolve("test/foo/bar/baz.js")
+    },
+    {
+      code: "describe('foo', function(){ if('should ~~', function(){  }); }); // invalid test but outside of test directory",
+      options: [{directory: "test"}],
+      filename: path.resolve("src/foo/bar/baz.js")
     }
   ],
   invalid: [
     {
-      code: "if(true){ }",
+      code: "describe('foo', function(){ if('should ~~', function(){  }); }); // invalid test",
       options: [{directory: "test"}],
       errors: [{message: null, type: "IfStatement"}],
       filename: path.resolve("test/foo/bar/baz.js") // in test directory
