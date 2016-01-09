@@ -13,7 +13,8 @@
     "chalk": "*"
   },
   "devDependencies": {
-    "eslint": "~1.2.0"
+    "eslint": "^1.10.3",
+    "mocha": "^2.3.4"
   },
   "engines": {
     "node": ">=0.10.0"
