@@ -10,7 +10,7 @@
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "main": "lib/index.js",
   "scripts" :{
-    "test": "mocha tests/*/test_*.js tests/*/*/test_*.js"
+    "test": "mocha tests/**/test_*.js"
   },
   "dependencies": {
     "chalk": "*"
