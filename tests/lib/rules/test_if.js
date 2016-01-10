@@ -24,7 +24,13 @@ ruleTester.run("rule \"if\"", rule, {
   ],
   invalid: [
     {
-      code: "describe('foo', function(){ if('should ~~', function(){  }); }); // invalid test",
+      code: "describe('foo', function(){ if('should ~~', function(){  }); }); // \"if\" in describe",
+      options: [{directory: "test"}],
+      errors: [{message: null, type: "IfStatement"}],
+      filename: path.resolve("test/foo/bar/baz.js") // in test directory
+    },
+    {
+      code: "describe('foo', function(){ it('should ~~', function(){  if('should ~~', function(){  }); }); }); // \"if\" in describe",
       options: [{directory: "test"}],
       errors: [{message: null, type: "IfStatement"}],
       filename: path.resolve("test/foo/bar/baz.js") // in test directory
