@@ -2,6 +2,7 @@
 
 find `if` statement in test code. `if` is usually not necessary in test, and it is typo of `it`.
 
+![screen shot](https://i.gyazo.com/93ce5cd396fdcb97de6e96c3e2639525.gif)
 ![screen shot](https://gyazo.com/c87aa435b0ed458b24d9eceb51a9995c.png)
 
 
