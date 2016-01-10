@@ -17,6 +17,11 @@ ruleTester.run("rule \"if\"", rule, {
       filename: path.resolve("test/foo/bar/baz.js")
     },
     {
+      code: "if(true){ }; describe('foo', function(){ it('should ~~', function(){  }); }); // if-statement outside of describe function",
+      options: [{directory: "test"}],
+      filename: path.resolve("test/foo/bar/baz.js")
+    },
+    {
       code: "describe('foo', function(){ if('should ~~', function(){  }); }); // invalid test but outside of test directory",
       options: [{directory: "test"}],
       filename: path.resolve("src/foo/bar/baz.js")
@@ -31,6 +36,12 @@ ruleTester.run("rule \"if\"", rule, {
     },
     {
       code: "describe('foo', function(){ it('should ~~', function(){  if('should ~~', function(){  }); }); }); // \"if\" in describe",
+      options: [{directory: "test"}],
+      errors: [{message: null, type: "IfStatement"}],
+      filename: path.resolve("test/foo/bar/baz.js") // in test directory
+    },
+    {
+      code: "describe('foo', function(){ describe('bar', function(){  if('should ~~', function(){  }); }); }); // \"if\" in 2 describes",
       options: [{directory: "test"}],
       errors: [{message: null, type: "IfStatement"}],
       filename: path.resolve("test/foo/bar/baz.js") // in test directory
