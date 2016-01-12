@@ -17,7 +17,12 @@ ruleTester.run("rule \"if\"", rule, {
       filename: path.resolve("test/foo/bar/baz.js")
     },
     {
-      code: "if(true){ }; describe('foo', function(){ it('should ~~', function(){  }); }); // if-statement outside of describe function",
+      code: "describe('foo', function(){ if(true){ } }); // \"if-not-string\" in describe function",
+      options: [{directory: "test"}],
+      filename: path.resolve("test/foo/bar/baz.js")
+    },
+    {
+      code: "if('aa'){ } describe('foo', function(){ it('should ~~', function(){  }); }); // \"if-string\" outside of describe function",
       options: [{directory: "test"}],
       filename: path.resolve("test/foo/bar/baz.js")
     },
@@ -29,19 +34,19 @@ ruleTester.run("rule \"if\"", rule, {
   ],
   invalid: [
     {
-      code: "describe('foo', function(){ if('should ~~', function(){  }); }); // \"if\" in describe",
+      code: "describe('foo', function(){ if('should ~~', function(){  }); }); // \"if-string\" in describe",
       options: [{directory: "test"}],
       errors: [{message: null, type: "IfStatement"}],
       filename: path.resolve("test/foo/bar/baz.js") // in test directory
     },
     {
-      code: "describe('foo', function(){ it('should ~~', function(){  if('should ~~', function(){  }); }); }); // \"if\" in describe",
+      code: "describe('foo', function(){ it('should ~~', function(){  if('should ~~', function(){  }); }); }); // \"if-string\" in describe",
       options: [{directory: "test"}],
       errors: [{message: null, type: "IfStatement"}],
       filename: path.resolve("test/foo/bar/baz.js") // in test directory
     },
     {
-      code: "describe('foo', function(){ describe('bar', function(){  if('should ~~', function(){  }); }); }); // \"if\" in 2 describes",
+      code: "describe('foo', function(){ describe('bar', function(){  if('should ~~', function(){  }); }); }); // \"if-string\" in 2 describes",
       options: [{directory: "test"}],
       errors: [{message: null, type: "IfStatement"}],
       filename: path.resolve("test/foo/bar/baz.js") // in test directory
