@@ -9,11 +9,12 @@
   ],
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "main": "lib/index.js",
-  "scripts" :{
+  "scripts": {
     "test": "mocha tests/**/test_*.js"
   },
   "dependencies": {
-    "chalk": "*"
+    "chalk": "*",
+    "requireindex": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^1.10.3",

@@ -1,6 +1,6 @@
 var path = require("path");
 
-var rule = require("../../../lib/rules/if")
+var rule = require(path.resolve()).rules.if;
 var RuleTester = require("eslint").RuleTester;
 
 var ruleTester = new RuleTester();
