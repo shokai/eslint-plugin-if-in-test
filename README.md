@@ -45,7 +45,17 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "if-in-test/if": [1, {"directory": "test"}]
+        "if-in-test/if": [1, { "directory": "test" }]
+    }
+}
+```
+
+Also you can set multiple directories.
+
+```json
+{
+    "rules": {
+        "if-in-test/if": [1, { "directory": ["test", "packages/*/test"] }]
     }
 }
 ```

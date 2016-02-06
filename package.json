@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "chalk": "*",
-    "requireindex": "^1.1.0"
+    "requireindex": "^1.1.0",
+    "wildcard": "^1.1.2"
   },
   "devDependencies": {
     "chokidar-cli": "^1.2.0",

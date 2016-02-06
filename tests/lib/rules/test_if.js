@@ -14,6 +14,16 @@ ruleTester.run("rule \"if\"", rule, {
       filename: path.resolve("test/foo/bar/baz.js") // inside of test directory
     },
     {
+      code: "if(true){ }",
+      options: [{directory: ["test", "packages/foo/test"]}], // multiple directory
+      filename: path.resolve("test/foo/bar/baz.js")
+    },
+    {
+      code: "if(true){ }",
+      options: [{directory: ["test", "packages/*/test"]}], // wild card
+      filename: path.resolve("packages/foo/test/bar.js")
+    },
+    {
       code: "describe('foo', function(){ it('should ~~', function(){  }); }); // valid mocha test",
       options: [{directory: "test"}],
       filename: path.resolve("test/foo/bar/baz.js")
@@ -40,6 +50,18 @@ ruleTester.run("rule \"if\"", rule, {
       options: [{directory: "test"}],
       errors: [{message: null, type: "IfStatement"}],
       filename: path.resolve("test/foo/bar/baz.js") // in test directory
+    },
+    {
+      code: "describe('foo', function(){ if('should ~~', function(){  }); }); // \"if-string\" in describe",
+      options: [{directory: ["test", "packages/foo/test"]}], // multiple directory
+      errors: [{message: null, type: "IfStatement"}],
+      filename: path.resolve("packages/foo/test/bar.js")
+    },
+    {
+      code: "describe('foo', function(){ if('should ~~', function(){  }); }); // \"if-string\" in describe",
+      options: [{directory: ["test", "packages/*/test"]}], // wildcard
+      errors: [{message: null, type: "IfStatement"}],
+      filename: path.resolve("packages/foo/test/bar.js")
     },
     {
       code: "describe('foo', function(){ it('should ~~', function(){  if('should ~~', function(){  }); }); }); // \"if-string\" in describe",
