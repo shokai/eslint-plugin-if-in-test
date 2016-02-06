@@ -10,13 +10,17 @@
   "author": "Sho Hashimoto <hashimoto@shokai.org>",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests/**/test_*.js"
+    "eslint": "eslint lib/**/*.js tests/**/*.js",
+    "mocha": "mocha tests/**/test_*.js",
+    "test": "npm run eslint && npm run mocha",
+    "watch": "chokidar '(tests|lib)/**/*.js' -c 'npm run test'"
   },
   "dependencies": {
     "chalk": "*",
     "requireindex": "^1.1.0"
   },
   "devDependencies": {
+    "chokidar-cli": "^1.2.0",
     "eslint": "^1.10.3",
     "mocha": "^2.3.4"
   },
